@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/myusdem/graphhopper-ng.svg?branch=master)](https://travis-ci.org/myusdem/graphhopper-ng)
+[![Build Status](https://travis-ci.org/roi-itlab/web.svg?branch=master)](https://travis-ci.org/roi-itlab/web)
 
-# GraphhopperNg
+# Cassandra Premium Web
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
 
