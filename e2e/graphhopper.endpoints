@@ -1,0 +1,6 @@
+-  request:
+      url: ^/geocoder
+   response:
+      headers:
+         content-type: application/json
+      file: geocoder.json

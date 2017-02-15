@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "6"
+
+install:
+  - npm install -g angular-cli
+  - npm install -g karma
+  - npm install
+
+before_script:
+  - ng -v
+  - npm run pree2e
+  - ng serve --env=ci &
+  - sleep 30
+
+script:
+#  - ng lint
+  - ng test --no-watch
+  - npm run e2e-travis
+
+after_success:
+  - npm run coveralls
+
+before_deploy:
+  - npm run package

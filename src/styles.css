@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin:0;
+    padding:0;
+}
+
+.on-map {
+    position: absolute;
+    z-index: 1000;
+}
+
+.map-button {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+}
+
+.leaflet-clickable {
+  cursor: crosshair !important;
+}
+
+.leaflet-container {
+  cursor: help !important;
+}
