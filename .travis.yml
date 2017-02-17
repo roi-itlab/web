@@ -3,16 +3,17 @@ node_js:
   - "6"
 
 install:
+  - npm install -g karma
   - npm install
 
 before_script:
   - npm run pree2e
-  - npm run start -- --env=ci &
+  - npm run start-ci &
   - sleep 30
 
 script:
 #  - ng lint
-  - npm run test -- --no-watch
+  - npm run test-once
   - npm run e2e-travis
 
 #after_success:

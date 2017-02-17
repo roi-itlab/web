@@ -5,8 +5,10 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
+    "start-ci": "ng serve --env=ci",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test -cc",
+    "test-once": "ng test -cc --no-watch",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "e2e-travis": "protractor protractor-travis.conf.js",
