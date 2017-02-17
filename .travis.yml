@@ -15,7 +15,6 @@ before_script:
   - docker-compose pull
   - docker-compose up -d selenium e2e stubby
   - sleep 60
-  - docker-compose logs
 
 script:
 #  - ng lint
