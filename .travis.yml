@@ -2,21 +2,23 @@ language: node_js
 node_js:
   - "6"
 
+service: docker
+
 install:
   - npm install
 
 before_script:
-  - npm run pree2e
-  - npm run start-ci &
+#  - npm run pree2e
+  - docker-compose up selenium e2e stubby &
   - sleep 30
 
 script:
 #  - ng lint
-  - npm run test-once
-  - npm run e2e-travis
+  - docker-compose run test
+  - docker-compose run e2e npm run e2e-selenium
 
 #after_success:
 #  - npm run coveralls
 
 before_deploy:
-  - npm run package
+#  - npm run package
