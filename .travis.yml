@@ -1,15 +1,17 @@
 dist: trusty
 sudo: required
 language: node_js
-node_js: "6"
+node_js:
+  - "6"
 
-services: 
+services:
   - docker
 
 install:
   - npm install
 
 before_script:
+#  - npm run pree2e
   - docker-compose pull
   - docker-compose up -d selenium e2e stubby
   - sleep 60
