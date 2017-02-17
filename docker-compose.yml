@@ -1,0 +1,31 @@
+version: '2'
+services:
+   e2e:
+     image: node:6
+     command: npm run start-ci
+#     ports:
+#      - "4200:4200"
+     volumes:
+      - ./:/usr/src/app
+     working_dir: /usr/src/app
+   selenium:
+     image: selenium/standalone-chrome
+     ports:
+      - "4444:4444"
+     links:
+      - e2e
+      - stubby
+   stubby:
+     image: node:6
+     command: npm run stubby
+#     ports:
+#      - "8882:8882"
+     volumes:
+      - ./:/usr/src/app
+     working_dir: /usr/src/app
+   test:
+     image: markadams/chromium-xvfb-js
+     command: npm run test-once
+     volumes:
+      - ./:/usr/src/app
+     working_dir: /usr/src/app
