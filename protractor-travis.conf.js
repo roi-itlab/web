@@ -12,7 +12,7 @@ exports.config = {
   capabilities: {
     'browserName': 'firefox',
   },
-  directConnect: false,
+  directConnect: true,
   baseUrl: 'http://localhost:4200',
   framework: 'jasmine',
   jasmineNodeOpts: {
