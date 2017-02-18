@@ -1,8 +1,8 @@
 dist: trusty
 sudo: required
-language: node_js
-node_js:
-  - "6"
+#language: node_js
+#node_js:
+#  - "6"
 
 services:
   - docker
@@ -12,12 +12,14 @@ services:
 
 before_script:
 #  - npm run pree2e
-#  - docker-compose run e2e npm install
+  - docker-compose run e2e npm install
   - docker-compose pull
   - docker-compose up -d e2e stubby
   - sleep 30
+  - docker-compose logs
   - docker-compose up -d selenium
   - sleep 30
+  - docker-compose logs
 
 script:
 #  - ng lint
