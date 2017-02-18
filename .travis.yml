@@ -14,8 +14,10 @@ before_script:
 #  - npm run pree2e
 #  - docker-compose run e2e npm install
   - docker-compose pull
-  - docker-compose up -d selenium e2e stubby
-  - sleep 60
+  - docker-compose up -d e2e stubby
+  - sleep 30
+  - docker-compose up -d selenium
+  - sleep 30
 
 script:
 #  - ng lint
