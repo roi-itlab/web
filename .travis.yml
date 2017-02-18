@@ -1,25 +1,36 @@
-language: node_js
-node_js:
-  - "6"
+dist: trusty
+sudo: required
+#language: node_js
+#node_js:
+#  - "6"
 
-install:
-  - npm install -g angular-cli
-  - npm install -g karma
-  - npm install
+services:
+  - docker
+
+#install:
+#  - npm install
 
 before_script:
-  - ng -v
-  - npm run pree2e
-  - ng serve --env=ci &
+#  - npm run pree2e
+  - docker-compose run e2e npm install
+  - docker-compose pull
+  - docker-compose up -d e2e stubby
   - sleep 30
+  - docker-compose logs
+  - docker-compose up -d selenium
+  - sleep 30
+  - docker-compose logs
 
 script:
 #  - ng lint
-  - ng test --no-watch
-  - npm run e2e-travis
+  - docker-compose run test
+  - docker-compose run e2e npm run e2e-selenium
 
-after_success:
-  - npm run coveralls
+#after_success:
+#  - npm run coveralls
 
 before_deploy:
-  - npm run package
+#  - npm run package
+
+after_failure:
+  - docker-compose logs

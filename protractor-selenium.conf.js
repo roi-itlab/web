@@ -7,13 +7,17 @@ var SpecReporter = require('jasmine-spec-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    'e2e/**/*.e2e-spec.ts'
+    './e2e/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'firefox',
+    'browserName': 'chrome',
+    'chromeOptions': {
+      'args': ['no-sandbox']
+    }
   },
-  directConnect: true,
-  baseUrl: 'http://localhost:4200',
+  directConnect: false,
+  seleniumAddress: 'http://selenium:4444/wd/hub',
+  baseUrl: 'http://e2e:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
@@ -27,7 +31,6 @@ exports.config = {
     });
   },
   onPrepare: function() {
-    browser.manage().timeouts().implicitlyWait(5000);
     jasmine.getEnv().addReporter(new SpecReporter());
   }
 };

@@ -5,7 +5,7 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli).
 
 ## Start
-Run `npm install -g angular-cli`
+Run `npm install -g @angular/cli`
 
 Run `npm install`
 
