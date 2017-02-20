@@ -37,7 +37,7 @@
   "packages": [],
   "e2e": {
     "protractor": {
-      "config": "./protractor-chrome.conf.js"
+      "config": "./protractor-phantom.conf.js"
     }
   },
   "test": {

@@ -4,15 +4,14 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "help": "ng help",
     "start": "ng serve",
     "start-ci": "ng serve --env=ci --host 0.0.0.0",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test -cc",
     "test-once": "ng test -cc --no-watch",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "e2e-travis": "protractor protractor-travis.conf.js",
-    "e2e-selenium": "protractor protractor-selenium.conf.js",
+    "e2e": "ng e2e",
     "stubby": "stubby -d e2e/graphhopper.endpoints",
     "coveralls": "cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js"
   },
