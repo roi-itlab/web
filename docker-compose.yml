@@ -14,10 +14,16 @@ services:
      links:
       - e2e
       - stubby
-      - test
    stubby:
      image: node:6
      command: npm run stubby
+     volumes:
+      - ./:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+     working_dir: /usr/src/app
+   install:
+     image: node:6
+     command: npm install
      volumes:
       - ./:/usr/src/app
       - node_modules:/usr/src/app/node_modules
@@ -29,9 +35,9 @@ services:
       - ./:/usr/src/app
       - node_modules:/usr/src/app/node_modules
      working_dir: /usr/src/app
-   test-chrome:
-     image: markadams/chromium-xvfb-js
-     command: npm run test-once -- -c karma-chrome.conf.js
+   test-e2e:
+     image: node:6
+     command: npm run e2e -- -s false -c protractor-selenium.conf.js
      volumes:
       - ./:/usr/src/app
       - node_modules:/usr/src/app/node_modules

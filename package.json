@@ -9,9 +9,11 @@
     "start-ci": "ng serve --env=ci --host 0.0.0.0",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test -cc",
+    "test-chrome": "ng test -cc -c karma-chrome.conf.js",
     "test-once": "ng test -cc --no-watch",
     "pree2e": "webdriver-manager update",
     "e2e": "ng e2e",
+    "e2e-chrome": "ng e2e -c protractor-chrome.conf.js",
     "stubby": "stubby -d e2e/graphhopper.endpoints",
     "coveralls": "cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js"
   },
