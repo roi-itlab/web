@@ -14,16 +14,12 @@ before_script:
 #  - npm run pree2e
   - docker-compose run e2e npm install
   - docker-compose pull
-  - docker-compose up -d e2e stubby
+  - docker-compose up -d e2e stubby selenium
   - sleep 30
-  - docker-compose logs
-  - docker-compose up -d selenium
-  - sleep 30
-  - docker-compose logs
 
 script:
 #  - ng lint
-  - docker-compose run test
+  - docker-compose run test-chrome
   - docker-compose run e2e npm run e2e-selenium
 
 #after_success:

@@ -24,8 +24,8 @@
       "scripts": [
         "../node_modules/leaflet/dist/leaflet.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
         "e2e": "environments/environment.e2e.ts",
@@ -37,12 +37,12 @@
   "packages": [],
   "e2e": {
     "protractor": {
-      "config": "./protractor.conf.js"
+      "config": "./protractor-chrome.conf.js"
     }
   },
   "test": {
     "karma": {
-      "config": "./karma.conf.js"
+      "config": "./karma-phantom.conf.js"
     }
   },
   "defaults": {

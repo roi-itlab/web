@@ -3,10 +3,9 @@ services:
    e2e:
      image: node:6
      command: npm run start-ci
-#     ports:
-#      - "4200:4200"
      volumes:
       - ./:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
      working_dir: /usr/src/app
    selenium:
      image: selenium/standalone-chrome
@@ -15,17 +14,27 @@ services:
      links:
       - e2e
       - stubby
+      - test
    stubby:
      image: node:6
      command: npm run stubby
-#     ports:
-#      - "8882:8882"
      volumes:
       - ./:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
      working_dir: /usr/src/app
    test:
-     image: markadams/chromium-xvfb-js
+     image: node:6
      command: npm run test-once
      volumes:
       - ./:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
      working_dir: /usr/src/app
+   test-chrome:
+     image: markadams/chromium-xvfb-js
+     command: npm run test-once -- -c karma-chrome.conf.js
+     volumes:
+      - ./:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+     working_dir: /usr/src/app
+volumes:
+  node_modules:
