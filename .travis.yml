@@ -4,19 +4,10 @@ language: node_js
 node_js:
   - "6"
 
-services:
-  - docker
-
 before_script:
-#  - docker-compose pull
-#  - docker-compose up -d e2e stubby selenium
-#  - npm run pree2e
 
 script:
-#  - docker-compose run test-chrome
-#  - docker-compose run e2e npm run e2e-selenium
   - npm run test-once
   - npm run e2e
 
 after_failure:
-#  - docker-compose logs
