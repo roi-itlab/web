@@ -6,6 +6,7 @@
   "scripts": {
     "help": "ng help",
     "start": "ng serve",
+    "build": "ng build",
     "start-ci": "ng serve --env=ci --host 0.0.0.0",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test -cc",
