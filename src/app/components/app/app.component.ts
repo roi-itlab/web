@@ -4,6 +4,7 @@ import {MarkerComponent} from '../marker/marker.component';
 import {MapService} from '../../services/map.service';
 import {GeocodingService} from '../../services/geocoding.service';
 import {Location} from '../../core/location.class';
+import {GeoRouteService} from '../../services/georoute.service';
 
 @Component({
     selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent {
 
     @ViewChild(MarkerComponent) markerComponent: MarkerComponent;
 
-    constructor(private mapService: MapService, private geocoder: GeocodingService) {
+    constructor(private mapService: MapService, private geocoder: GeocodingService, private route: GeoRouteService) {
     }
 
     ngOnInit() {
@@ -31,7 +32,7 @@ export class AppComponent {
         L.control.zoom({ position: 'topright' }).addTo(map);
         L.control.layers(this.mapService.baseMaps).addTo(map);
         L.control.scale().addTo(map);
-
+        this.route.getRoute(2).subscribe((geoJson) =>  L.geoJSON(geoJson).addTo(map));
         this.mapService.map = map;
         this.geocoder.getCurrentLocation()
             .subscribe(
