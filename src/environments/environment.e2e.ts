@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   endpoints: {
     geocoder: 'http://localhost:8882/geocoder'
-  }
+  },
+  hmr: false,
 };

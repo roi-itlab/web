@@ -15,7 +15,8 @@
     ],
     "types": [
       "jasmine",
-      "leaflet"
+      "leaflet",
+      "webpack-env"
     ]
   }
 }

@@ -1,0 +1,246 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+        "type": "Feature",
+        "properties":
+        {
+          "name": "Load Level 1",
+          "load": 1
+        },
+        "geometry":
+        {
+          "type": "GeometryCollection",
+          "geometries": [
+            {
+              "type": "LineString",
+              "coordinates":
+              [
+                [
+                    29.913646,
+                    59.879335,
+                    28.8
+                ],
+                [
+                    29.925031,
+                    59.877729,
+                    27.2
+                ]
+              ]
+            }
+
+          ]
+        }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 2",
+        "load": 2
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+              {
+                "type": "LineString",
+                "coordinates":
+                [
+                  [
+                      29.925031,
+                      59.877729,
+                      27.2
+                  ],
+                  [
+                      29.928453,
+                      59.877197,
+                      28.4
+                  ]
+                ]
+              }
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 3",
+        "load": 3
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+          {
+            "type": "LineString",
+            "coordinates":
+            [
+              [
+                  29.928453,
+                  59.877197,
+                  28.4
+              ],
+              [
+                  29.936374,
+                  59.876049,
+                  27.4
+              ]
+            ]
+          }
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 5",
+        "load": 5
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+          {
+            "type": "LineString",
+            "coordinates":
+            [
+              [
+                  29.936374,
+                  59.876049,
+                  27.4
+              ],
+              [
+                  29.94574,
+                  59.874712,
+                  24
+              ]
+            ]
+          }
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 6",
+        "load": 6
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+          {
+            "type": "LineString",
+            "coordinates":
+            [
+              [
+                  29.911052,
+                  59.879722,
+                  28
+              ],
+              [
+                  29.913646,
+                  59.879335,
+                  28.8
+              ]
+            ]
+          }
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 7",
+        "load": 7
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 8",
+        "load": 8
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+          {
+          "type": "LineString",
+          "coordinates": [
+              [
+                  29.907978,
+                  59.88016,
+                  27.4
+              ],
+              [
+                  29.911052,
+                  59.879722,
+                  28
+              ]
+            ]
+          }
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 9",
+        "load": 9
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+
+        ]
+
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name": "Load Level 10",
+        "load": 10
+      },
+      "geometry":
+      {
+        "type": "GeometryCollection",
+        "geometries": [
+
+        ]
+
+      }
+    }
+  ]
+}
