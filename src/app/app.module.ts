@@ -9,6 +9,7 @@ import {MarkerComponent} from './components/marker/marker.component';
 
 import {MapService} from './services/map.service';
 import {GeocodingService} from './services/geocoding.service';
+import {GeoRouteService} from './services/georoute.service';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {GeocodingService} from './services/geocoding.service';
     ],
     providers: [
         MapService,
-        GeocodingService
+        GeocodingService,
+        GeoRouteService
   ],
   imports: [
     BrowserModule,
