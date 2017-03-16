@@ -4,7 +4,7 @@ import {MarkerComponent} from '../marker/marker.component';
 import {MapService} from '../../services/map.service';
 import {GeocodingService} from '../../services/geocoding.service';
 import {Location} from '../../core/location.class';
-
+import {DensityMapService} from '../../services/densitymap.service';
 /// <reference path="../../leaflet.heat.d.ts"/>
 
 
@@ -19,7 +19,8 @@ export class AppComponent {
 
 	@ViewChild(MarkerComponent) markerComponent: MarkerComponent;
 
-	constructor(private mapService: MapService, private geocoder: GeocodingService) {
+	constructor(private mapService: MapService, private geocoder: GeocodingService,
+	private densitymap:DensityMapService) {
 	}
 
 	ngOnInit() {
@@ -35,7 +36,6 @@ export class AppComponent {
 		L.control.zoom({ position: 'topright' }).addTo(map);
 		L.control.layers(this.mapService.baseMaps).addTo(map);
 		L.control.scale().addTo(map);
-
 		this.mapService.map = map;
 		this.geocoder.getCurrentLocation()
 		.subscribe(
@@ -43,33 +43,11 @@ export class AppComponent {
 			err => console.error(err)
 			);
 
-		
-		let heat = L.heatLayer([
-			[59.82836,30.39669,1],
-			[60.03541,30.28928,1] ,
-			[59.82836,30.39669,1],
-			[59.86327,30.31777,1],
-			[60.00351,30.40895,1],
-			[59.74306,30.58583,1],
-			[59.92141,30.28098,1],
-			[60.00914,30.35832, 1] ,
-			[60.00317,30.32815, 1],
-			], {radius: 7, minOpacity:1}).addTo(map);
-/*
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', 'poi.csv', true);
-		xhr.send();
+		var heat;
+		this.densitymap.getLocations().subscribe(res => {
+		heat=L.heatLayer(res, {radius: 7, minOpacity:1}).addTo(map);
+		});
 
-		if (xhr.status != 200) {
- 			 alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-		} else {
-			let array=xhr.responseText.split('|');
-
-			for(var i=2;i<array.length;i+=5){
-				heat.addLatLng([+[array[i],+array[i+1]]]);
-			}
-		}
-*/
 }
 
 ngAfterViewInit() {
