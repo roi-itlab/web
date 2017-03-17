@@ -5,6 +5,7 @@ import {MapService} from '../../services/map.service';
 import {GeocodingService} from '../../services/geocoding.service';
 import {Location} from '../../core/location.class';
 import {DensityMapService} from '../../services/densitymap.service';
+import {GeoRouteService} from '../../services/georoute.service';
 /// <reference path="../../leaflet.heat.d.ts"/>
 
 
@@ -20,7 +21,7 @@ export class AppComponent {
 	@ViewChild(MarkerComponent) markerComponent: MarkerComponent;
 
 	constructor(private mapService: MapService, private geocoder: GeocodingService,
-	private densitymap:DensityMapService) {
+	private densitymap:DensityMapService, private route: GeoRouteService) {
 	}
 
 	ngOnInit() {
@@ -36,6 +37,7 @@ export class AppComponent {
 		L.control.zoom({ position: 'topright' }).addTo(map);
 		L.control.layers(this.mapService.baseMaps).addTo(map);
 		L.control.scale().addTo(map);
+	
 		this.mapService.map = map;
 		this.geocoder.getCurrentLocation()
 		.subscribe(
@@ -43,9 +45,32 @@ export class AppComponent {
 			err => console.error(err)
 			);
 
+//добавление маршрутов
+		this.route.getRoute(2).subscribe((geoJson) =>  L.geoJSON(geoJson,
+			{
+			style: function(feature: any)
+			{
+				switch (feature.properties.load)
+				{
+				case 1: return {color: "#55FF00"};
+				case 2: return {color: "#77FF00"};
+				case 3: return {color: "#9AFF00"};
+				case 4: return {color: "#BCFF00"};
+				case 5: return {color: "#DEFF00"};
+				case 6: return {color: "#FFFF00"};
+				case 7: return {color: "#FFDE00"};
+				case 8: return {color: "#FFBC00"};
+				case 9: return {color: "#FF9A00"};
+				case 10: return {color: "#FF7700"};
+				}
+			}
+			}
+		).addTo(map));
+
+//отображение точек на карте
 		var heat;
 		this.densitymap.getLocations().subscribe(res => {
-		heat=L.heatLayer(res, {radius: 7, minOpacity:1}).addTo(map);
+		heat=L.heatLayer(res, {radius: 10, minOpacity:1}).addTo(map);
 		});
 
 }
