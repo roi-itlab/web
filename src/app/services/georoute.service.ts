@@ -11,7 +11,7 @@ export class GeoRouteService {
     }
 
      public getRoute(id: number): Observable<any> {
-         return this.http.get("src/assets/routes/route" + id + ".geojson")
+         return this.http.get("/assets/routes/route" + id + ".geojson")
             .map((res:any) => res.json());
      }
 }

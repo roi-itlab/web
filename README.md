@@ -23,9 +23,11 @@ Run `npm run test-once` or `npm run test-chrome` to execute the unit tests via [
 Run `npm run e2e` or `npm run e2e-chrome` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
 
 ## Docker
-Run once `docker-compose up install` or `docker-compose run install`. On Windows you may need to add `-d` option and run `docker-compose logs install` to see the output.
+Run once `docker-compose up install` (or `docker-compose run install`). On Windows you may need to add `-d` option and run `docker-compose logs install` to see the output.
+
 Run `docker-compose up test` for unit tests.
-Run `docker-compose up -d e2e stubby selenium` and `docker-compose up -d test-e2e` for E2E tests.
+
+Run `docker-compose up -d e2e stubby selenium` and `docker-compose up test-e2e` for E2E tests.
 
 ## Further help
 

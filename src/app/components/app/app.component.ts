@@ -6,7 +6,6 @@ import {GeocodingService} from '../../services/geocoding.service';
 import {Location} from '../../core/location.class';
 import {DensityMapService} from '../../services/densitymap.service';
 import {GeoRouteService} from '../../services/georoute.service';
-/// <reference path="../../leaflet.heat.d.ts"/>
 
 @Component({
 	selector: 'app-root',
@@ -24,7 +23,7 @@ export class AppComponent {
 		let map = L.map('map', {
 			zoomControl: false,
 			center: L.latLng(59.9633002,30.2901263),
-			zoom: 12,
+			zoom: 11,
 			minZoom: 4,
 			maxZoom: 19,
 			layers: [this.mapService.baseMaps.OpenStreetMap]
@@ -35,11 +34,11 @@ export class AppComponent {
 		L.control.scale().addTo(map);
 	
 		this.mapService.map = map;
-		this.geocoder.getCurrentLocation()
-		.subscribe(
-			location => map.panTo([location.latitude, location.longitude]),
-			err => console.error(err)
-			);
+		// this.geocoder.getCurrentLocation()
+		// .subscribe(
+		// 	location => map.panTo([location.latitude, location.longitude]),
+		// 	err => console.error(err)
+		// 	);
 
 //добавление маршрутов
 		this.route.getRoute(2).subscribe((geoJson) =>  L.geoJSON(geoJson,
