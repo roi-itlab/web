@@ -60,6 +60,6 @@ describe('App: Cassandra Premium', () => {
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('nav').textContent).toContain('Cassandra');
-    expect(geocodingService.getCurrentLocation).toHaveBeenCalled();
+    expect(geocodingService.getCurrentLocation).not.toHaveBeenCalled();
   }));
 });
