@@ -11,7 +11,7 @@ export class DensityMapService {
     }
 
      public getLocations(): Observable<any>{
-         return this.http.get("src/assets/locations/locations1.json").map((response:any) =>
+         return this.http.get("/assets/locations/locations1.json").map((response:any) =>
                 response.json());
             
      }

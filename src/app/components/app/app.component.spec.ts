@@ -6,13 +6,16 @@ import { NavigatorComponent } from '../navigator/navigator.component';
 import { MarkerComponent } from '../marker/marker.component';
 import { MapService } from '../../services/map.service';
 import {GeocodingService} from '../../services/geocoding.service';
+import {Location} from '../../core/location.class';
+import {DensityMapService} from '../../services/densitymap.service';
+import {GeoRouteService} from '../../services/georoute.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-describe('App: GraphhopperNg', () => {
+describe('App: Cassandra Premium', () => {
 
   let fixture;
   let app;
@@ -31,7 +34,9 @@ describe('App: GraphhopperNg', () => {
       ],
       providers: [
         MapService,
-        GeocodingService
+        GeocodingService,
+        GeoRouteService,
+        DensityMapService
       ],
       imports: [
         BrowserModule,
@@ -54,7 +59,7 @@ describe('App: GraphhopperNg', () => {
   it('should render title in a nav tag', async(() => {
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('nav').textContent).toContain('Graphhopper NG');
-    expect(geocodingService.getCurrentLocation).toHaveBeenCalled();
+    expect(compiled.querySelector('nav').textContent).toContain('Cassandra');
+    expect(geocodingService.getCurrentLocation).not.toHaveBeenCalled();
   }));
 });
