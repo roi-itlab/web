@@ -8,8 +8,6 @@ import {DensityMapService} from '../../services/densitymap.service';
 import {GeoRouteService} from '../../services/georoute.service';
 /// <reference path="../../leaflet.heat.d.ts"/>
 
-
-
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -19,15 +17,13 @@ import {GeoRouteService} from '../../services/georoute.service';
 export class AppComponent {
 
 	@ViewChild(MarkerComponent) markerComponent: MarkerComponent;
-
-	constructor(private mapService: MapService, private geocoder: GeocodingService,
-	private densitymap:DensityMapService, private route: GeoRouteService) {
+	constructor(private mapService: MapService, private geocoder: GeocodingService,	private densitymap:DensityMapService, private route: GeoRouteService) {
 	}
 
 	ngOnInit() {
 		let map = L.map('map', {
 			zoomControl: false,
-			center: L.latLng(40.731253, -73.996139),
+			center: L.latLng(59.9633002,30.2901263),
 			zoom: 12,
 			minZoom: 4,
 			maxZoom: 19,
