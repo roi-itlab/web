@@ -5,6 +5,14 @@
 declare var System: any;
 declare var require: any;
 
+declare function geojsonvt(data:any, options:any);
+
+declare namespace L {
+  namespace vectorGrid {
+    export function slicer(data: any, options?: any): any;
+  }
+}
+
 declare namespace L {
 
     export interface DomEvent {
