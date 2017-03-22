@@ -38,7 +38,9 @@
     "rxjs": "^5.0.1",
     "stubby": "^4.0.0",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "geojson-vt": "2.4.0",
+    "leaflet.vectorgrid": "1.2.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.0.0-beta.32.3",
