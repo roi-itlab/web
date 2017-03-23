@@ -29,9 +29,49 @@ export class AppComponent {
 			layers: [this.mapService.baseMaps.OpenStreetMap]
 		});
 
-		L.control.zoom({ position: 'topright' }).addTo(map);
-		L.control.layers(this.mapService.baseMaps).addTo(map);
-		L.control.scale().addTo(map);
+        function getFeatureColor(properties: any) {
+            switch (properties.load) {
+                case 1: return "#55FF00";
+                case 2: return "#77FF00";
+                case 3: return "#9AFF00";
+                case 4: return "#BCFF00";
+                case 5: return "#DEFF00";
+                case 6: return "#FFFF00";
+                case 7: return "#FFDE00";
+                case 8: return "#FFBC00";
+                case 9: return "#FF9A00";
+                case 10: return "#FF7700";
+            }
+        }
+        var tileOptions = {
+            maxZoom: 20, 
+            tolerance: 5, 
+            extent: 4096, 
+            buffer: 64,   
+            debug: 0,     
+
+            indexMaxZoom: 0,       
+            indexMaxPoints: 100000,
+            vectorTileLayerStyles: {
+                sliced: function (properties, zoom) {
+                    return {
+                        color: getFeatureColor(properties),
+                        fillOpacity: 1,
+                        stroke: true,
+                        fill: true,
+
+                    }
+                }
+            }
+        };
+
+        L.control.zoom({ position: 'topright' }).addTo(map);
+        L.control.layers(this.mapService.baseMaps).addTo(map);
+        L.control.scale().addTo(map);
+        this.route.getRoute(5).subscribe((geoJson) => {
+            var layer = L.vectorGrid.slicer(geoJson, tileOptions)
+                .addTo(map);
+        });
 	
 		this.mapService.map = map;
 		// this.geocoder.getCurrentLocation()
@@ -40,38 +80,16 @@ export class AppComponent {
 		// 	err => console.error(err)
 		// 	);
 
-//добавление маршрутов
-		this.route.getRoute(2).subscribe((geoJson) =>  L.geoJSON(geoJson,
-			{
-			style: function(feature: any)
-			{
-				switch (feature.properties.load)
-				{
-				case 1: return {color: "#55FF00"};
-				case 2: return {color: "#77FF00"};
-				case 3: return {color: "#9AFF00"};
-				case 4: return {color: "#BCFF00"};
-				case 5: return {color: "#DEFF00"};
-				case 6: return {color: "#FFFF00"};
-				case 7: return {color: "#FFDE00"};
-				case 8: return {color: "#FFBC00"};
-				case 9: return {color: "#FF9A00"};
-				case 10: return {color: "#FF7700"};
-				}
-			}
-			}
-		).addTo(map));
+//отображение точек на карте - пока отключено, чтобы не мешать
+		// var heat;
+		// this.densitymap.getLocations().subscribe(res => {
+		// 	heat=L.heatLayer(res, {radius: 10, minOpacity:1}).addTo(map);
+		// });
 
-//отображение точек на карте
-		var heat;
-		this.densitymap.getLocations().subscribe(res => {
-		heat=L.heatLayer(res, {radius: 10, minOpacity:1}).addTo(map);
-		});
+	}
 
-}
-
-ngAfterViewInit() {
-	this.markerComponent.Initialize();
-}
+	ngAfterViewInit() {
+		this.markerComponent.Initialize();
+	}
 }
 

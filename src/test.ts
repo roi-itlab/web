@@ -1,6 +1,7 @@
 import './polyfills.ts';
 import 'leaflet';
 import 'leaflet.heat';
+import 'leaflet.vectorgrid';
 
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
