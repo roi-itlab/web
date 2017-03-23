@@ -28,9 +28,9 @@ export class MarkerComponent {
         this.mapService.map.on('click', (e: MouseEvent) => {
             if (this.editing) {
                 let marker = L.marker(e.latlng, {
-                    icon: L.icon({
-                        iconUrl: require('../../../../node_modules/leaflet/dist/images/marker-icon.png'),
-                        shadowUrl: require('../../../../node_modules/leaflet/dist/images/marker-shadow.png')
+                    icon: L.icon(<L.IconOptions>{
+                        iconUrl: '../../../../node_modules/leaflet/dist/images/marker-icon.png',
+                        shadowUrl: '../../../../node_modules/leaflet/dist/images/marker-shadow.png'
                     }),
                     draggable: true
                 })
