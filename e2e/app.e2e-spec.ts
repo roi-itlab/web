@@ -15,7 +15,7 @@ describe('graphhopper-ng App', function() {
   });
 
   it('should display message saying app works', () => {
-    expect(page.getParagraphText()).toEqual('Graphhopper NG');
+    expect(page.getParagraphText()).toEqual('Cassandra NG');
   });
 
   it('should add marker on map', () => {
