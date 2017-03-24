@@ -44,7 +44,7 @@
     "leaflet.vectorgrid": "1.2.0"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-beta.32.3",
+    "@angular/cli": "^1.0.0",
     "@angular/compiler-cli": "^2.4.0",
     "@angularclass/hmr": "^1.2.2",
     "@types/jasmine": "2.5.38",
@@ -66,6 +66,6 @@
     "protractor": "~5.1.0",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
-    "typescript": "~2.0.0"
+    "typescript": "~2.1.0"
   }
 }
