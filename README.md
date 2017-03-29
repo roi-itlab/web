@@ -29,6 +29,9 @@ Run `docker-compose up test` for unit tests.
 
 Run `docker-compose up -d e2e stubby selenium` and `docker-compose up test-e2e` for E2E tests.
 
+## Download Intensity Map geojson files
+Run `npm run routes`.
+
 ## Further help
 
 Check scripts in package.json for more options to run with `npm run`.
