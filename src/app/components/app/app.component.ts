@@ -31,16 +31,16 @@ export class AppComponent {
 
         function getFeatureColor(properties: any) {
             switch (properties.load) {
-                case 1: return "#55FF00";
-                case 2: return "#77FF00";
-                case 3: return "#9AFF00";
-                case 4: return "#BCFF00";
-                case 5: return "#DEFF00";
-                case 6: return "#FFFF00";
-                case 7: return "#FFDE00";
-                case 8: return "#FFBC00";
-                case 9: return "#FF9A00";
-                case 10: return "#FF7700";
+                case 1: return "#17077C";
+                case 2: return "#073088";
+                case 3: return "#077494";
+                case 4: return "#06A07D";
+                case 5: return "#06AB3A";
+                case 6: return "#1DB705";
+                case 7: return "#75C304";
+                case 8: return "#CEC502";
+                case 9: return "#DA6D01";
+                case 10: return "#E60A00";
             }
         }
         var tileOptions = {
@@ -68,7 +68,7 @@ export class AppComponent {
         L.control.zoom({ position: 'topright' }).addTo(map);
         L.control.layers(this.mapService.baseMaps).addTo(map);
         L.control.scale().addTo(map);
-        this.route.getRoute(5).subscribe((geoJson) => {
+        this.route.getRouteByName("map_9_0").subscribe((geoJson) => {
             var layer = L.vectorGrid.slicer(geoJson, tileOptions)
                 .addTo(map);
         });
