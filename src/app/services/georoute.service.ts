@@ -14,4 +14,10 @@ export class GeoRouteService {
          return this.http.get("/assets/routes/route" + id + ".geojson")
             .map((res:any) => res.json());
      }
+
+     public getRouteByName(name: string): Observable<any> {
+         return this.http.get("/assets/routes/" + name + ".geojson")
+            .map((res:any) => res.json());
+     }
+     
 }

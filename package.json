@@ -17,7 +17,8 @@
     "e2e-chrome": "ng e2e -c protractor-chrome.conf.js",
     "stubby": "stubby -d e2e/graphhopper.endpoints",
     "coveralls": "cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js",
-    "hmr": "ng serve --hmr -e=hmr"
+    "hmr": "ng serve --hmr -e=hmr",
+    "routes": "download --extract --out src/assets/routes https://github.com/roi-itlab/web/releases/download/1.0/routes.zip"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +39,7 @@
     "leaflet.heat": "^0.2.0",
     "rxjs": "^5.0.1",
     "stubby": "^4.0.0",
-    "ts-helpers": "^1.1.1", 
+    "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2",
     "geojson-vt": "2.4.0",
     "leaflet.vectorgrid": "1.2.0"
@@ -52,6 +53,7 @@
     "@types/node": "^6.0.42",
     "codelyzer": "~2.0.0-beta.1",
     "coveralls": "^2.11.14",
+    "download-cli": "^1.0.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
